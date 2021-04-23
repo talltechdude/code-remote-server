@@ -21,3 +21,4 @@ RUN whoami
 #RUN echo "finding zsh" && \
 #    /bin/bash -c "which zsh"
 RUN /bin/zsh -c "source /home/rancher/.zshrc"
+USER root
