@@ -1,0 +1,30 @@
+---
+
+name: ci
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  main:
+    name: 'Build'
+    runs-on: ubuntu-latest
+    steps:
+      # - name: ⤵️ Checkout
+      #   uses: actions/checkout@v2
+      - name: 🏗  Login to GitHub Container Registry
+        uses: docker/login-action@v1.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: "${{ secrets.CR_PAT }}"
+      - name: 🚀 Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ghcr.io/talltechdude/ros-console:latest
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
