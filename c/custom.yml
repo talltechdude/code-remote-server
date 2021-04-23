@@ -1,12 +1,12 @@
 console:
-  image: ghcr.io/talltechdude/ros-console:latest${SUFFIX}
+  image: ghcr.io/talltechdude/ros-console:latest
   command: ros console-init
   privileged: true
   labels:
     io.rancher.os.scope: system
     io.rancher.os.after: network
     io.docker.compose.rebuild: "false"
-    io.rancher.os.console: ubuntu
+    io.rancher.os.console: custom
   volumes_from:
   - all-volumes
   volumes:
