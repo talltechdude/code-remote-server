@@ -3,7 +3,7 @@ FROM rancher/os-ubuntuconsole:v1.5.8
 RUN apt-get update \
     && apt-get install -y \
         git \
-        python3 python3-pip \
+        python3-minimal python3-pip \
         zsh \
     && pip3 install --upgrade SwarmManagement
 
