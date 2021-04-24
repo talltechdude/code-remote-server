@@ -22,3 +22,6 @@ RUN apt-get update \
 # #    /bin/bash -c "which zsh"
 # RUN /bin/zsh -c "source /home/rancher/.zshrc"
 # USER root
+
+# Add dutree command
+RUN curl -O /usr/bin/dutree "https://github.com/nachoparker/dutree/releases/download/v0.2.15/dutree" && chmod +x /usr/bin/dutree
