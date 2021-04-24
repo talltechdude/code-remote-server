@@ -7,18 +7,18 @@ RUN apt-get update \
         zsh \
     && pip3 install --upgrade SwarmManagement
 
-# Use ZSH
-RUN chsh -s /usr/bin/zsh
-ENV SHELL=/usr/bin/zsh
-WORKDIR /home/rancher
-# Clone custom content
-USER rancher
-RUN git clone https://gitlab.com/talltechdude/dotfiles /home/rancher/dotfiles && cd /home/rancher/dotfiles && ./install
+# # Use ZSH
+# RUN chsh -s /usr/bin/zsh
+# ENV SHELL=/usr/bin/zsh
+# WORKDIR /home/rancher
+# # Clone custom content
+# USER rancher
+# RUN git clone https://gitlab.com/talltechdude/dotfiles /home/rancher/dotfiles && cd /home/rancher/dotfiles && ./install
 
-RUN cd ~ && pwd
-RUN whoami
-# ZSH firstrun
-#RUN echo "finding zsh" && \
-#    /bin/bash -c "which zsh"
-RUN /bin/zsh -c "source /home/rancher/.zshrc"
-USER root
+# RUN cd ~ && pwd
+# RUN whoami
+# # ZSH firstrun
+# #RUN echo "finding zsh" && \
+# #    /bin/bash -c "which zsh"
+# RUN /bin/zsh -c "source /home/rancher/.zshrc"
+# USER root
